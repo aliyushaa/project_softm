@@ -6,7 +6,7 @@
 //module.exports = nextConfig
 
 module.exports = {
-    images: {
-        domains: ["rb.gy"],
-    },
+  images: {
+    domains: ["rb.gy"],
+  },
 };

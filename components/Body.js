@@ -6,6 +6,7 @@ import Poster from "./Poster";
 import Track from "./Track";
 import Dropdown from "./Dropdown";
 
+
 function Body({spotifyApi, chooseTrack}) {
     const {data: session} = useSession();
     const {accessToken} = session;
@@ -63,9 +64,7 @@ function Body({spotifyApi, chooseTrack}) {
     return (
         <section className="bg-neutral-800 ml-24 py-4 space-y-8 md:max-w-8xl flex-grow md:mr-2.5 mb-14">
             <Seacrh search={search} setSearch={setSearch}/>
-            <div className="absolute float-right top-0 right-7 pt-0">
-                <Dropdown/>
-            </div>
+
             <div className="rounded-2xl py-10 pb-10 bg-[#8c82a15e] shadow-2xl drop-shadow-2xl mr-">
                 <div className="grid overflow-y-scroll scrollbar-hide py-2 grid-cols-3 lg:grid-cols-4
             xl:grid-cols-5 gap-x-3 gap-y-1 p-14 sm:grid-cols-3 h-[500px]">
@@ -83,6 +82,7 @@ function Body({spotifyApi, chooseTrack}) {
                         />
                     ))}
                 </div>
+
 
                 <div>
                     <h2 className="text-white font-bold mb-3 ml-11 text-[20px] mt-3">

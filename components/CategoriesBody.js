@@ -3,6 +3,7 @@ import {useState} from "react";
 import {useEffect} from "react";
 import Seacrh from "./Search";
 import Track from "./Track";
+import SpotifyWebApi from "spotify-web-api-node/src/spotify-web-api";
 
 
 function CategoriesBody({spotifyApi, chooseTrack}) {
@@ -23,7 +24,7 @@ function CategoriesBody({spotifyApi, chooseTrack}) {
         if (!accessToken) return;
 
         spotifyApi.searchTracks(search).then((res) => {
-            setSearchResults(res.body.tracks.items.slice(0, 50).map((track) => {
+            setSearchResults(res.body.tracks.items.map((track) => {
                     return {
                         id: track.id,
                         artist: track.artists[0].name,
@@ -44,7 +45,7 @@ function CategoriesBody({spotifyApi, chooseTrack}) {
 
         spotifyApi.getNewReleases().then((res) => {
             setNewReleases
-            (res.body.albums.items.slice(0, 50).map((track) => {
+            (res.body.albums.items.map((track) => {
                     return {
                         id: track.id,
                         artist: track.artists[0].name,
@@ -88,5 +89,4 @@ function CategoriesBody({spotifyApi, chooseTrack}) {
 
     );
 }
-
 export default CategoriesBody;

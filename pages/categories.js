@@ -7,6 +7,7 @@ import Player from "../components/Player";
 import {useState} from "react";
 import Sidebar from "../components/Sidebar";
 import CategoriesBody from "../components/CategoriesBody";
+import Dropdown from "../components/Dropdown";
 
 
 const spotifyApi = new SpotifyWebApi({
@@ -29,6 +30,9 @@ function categories() {
     return (
         <main className="flex min-h-screen min-w-max bg-neutral-800 lg:pb-5">
             <Sidebar/>
+            <div className="absolute float-right top-4 right-7 pt-0 z-[1000]">
+                <Dropdown/>
+            </div>
             <CategoriesBody spotifyApi={spotifyApi} chooseTrack={chooseTrack}/>
             {showPlayer && (
                 <div className="fixed bottom-0 left-0 right-0 z-101">
@@ -38,5 +42,6 @@ function categories() {
         </main>
     );
 }
-
 export default categories;
+
+
